@@ -9,5 +9,4 @@ module.exports = merge(common, {
     open: true,
     port: 1337
   },
-  devtool: 'source-map',
 });

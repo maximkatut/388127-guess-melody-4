@@ -4,15 +4,16 @@ module.exports = {
   entry: `./src/index.js`,
   output: {
     filename: `bundle.js`,
-    path: path.join(__dirname, `public`)
+    path: path.join(__dirname, `public`),
   },
   module: {
     rules: [
       {
-        test: /\.js(x)&/,
+        test: /\.(jsx|js)$/,
         exclude: /node_modules/,
         use: `babel-loader`,
-      }
-    ]
+      },
+    ],
   },
+  devtool: "source-map",
 };
