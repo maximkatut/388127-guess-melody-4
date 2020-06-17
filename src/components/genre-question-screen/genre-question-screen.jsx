@@ -10,6 +10,13 @@ class GenreQuestionScreen extends React.PureComponent {
     };
   }
 
+  _handleInputChange(value, index) {
+    const {answers: userAnswers} = this.state;
+    this.setState({
+      answers: [...userAnswers.slice(0, index), value, ...userAnswers.slice(index + 1)]
+    });
+  }
+
   render() {
     const {onAnswer, question} = this.props;
     const {answers, genre} = question;
@@ -51,11 +58,9 @@ class GenreQuestionScreen extends React.PureComponent {
                   value={`answer-${i}`}
                   id={`answer-${i}`}
                   checked={userAnswers[i]}
-                  onChange={(evt) => {
+                  onChange={(evt)=> {
                     const value = evt.target.checked;
-                    this.setState({
-                      answers: [...userAnswers.slice(0, i), value, ...userAnswers.slice(i + 1)]
-                    });
+                    this._handleInputChange(value, i);
                   }}
                 />
                 <label
