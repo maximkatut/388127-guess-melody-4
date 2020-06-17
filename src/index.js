@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app.jsx';
+import questions from './mocks/questions.js';
+import settings from './mocks/settings.js';
 
 const init = () => {
-  const errorCount = 3;
   ReactDOM.render(
       <App
-        errorCount = {errorCount}
+        errorCount = {settings.errorCount}
+        questions = {questions}
       />,
       document.querySelector(`#root`)
   );
