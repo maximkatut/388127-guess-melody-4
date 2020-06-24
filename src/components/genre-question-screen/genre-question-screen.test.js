@@ -9,6 +9,7 @@ describe(`GenreQuestionScreen`, () => {
       <GenreQuestionScreen
         question={genreQuestion}
         onAnswer={() => {}}
+        renderPlayer={() => {}}
       />
     ), {
       createNodeMock: () => {
