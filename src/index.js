@@ -7,7 +7,10 @@ import App from './components/app/app.jsx';
 import questions from './mocks/questions.js';
 import settings from './mocks/settings.js';
 
-const store = createStore(reducer);
+const store = createStore(
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+);
 
 const init = () => {
   ReactDOM.render(
