@@ -1,4 +1,4 @@
-import GameScreen from './game-screen.jsx';
+import {GameScreen} from './game-screen.jsx';
 import {GameType} from "../../const.js";
 import React from 'react';
 import renderer from 'react-test-renderer';
@@ -10,6 +10,7 @@ describe(`GameScreen`, () => {
     const tree = renderer.create((
       <GameScreen
         type={GameType.ARTIST}
+        mistakes={3}
       >
         {children}
       </GameScreen>
@@ -21,6 +22,7 @@ describe(`GameScreen`, () => {
     const tree = renderer.create((
       <GameScreen
         type={GameType.GENRE}
+        mistakes={3}
       >
         {children}
       </GameScreen>
