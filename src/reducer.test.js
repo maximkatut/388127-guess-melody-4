@@ -1,8 +1,8 @@
-import {reducer, ActionType} from "./reducer.js";
-import {questions} from './utils/tests-data';
 import questionsMocks from './mocks/questions';
+import {ActionCreator, ActionType, reducer} from "./reducer.js";
+import {questions} from './utils/tests-data';
 
-describe(`Reducer`, () => {
+describe(`Reducer works correctly`, () => {
   it(`Reducer without additional parameters should return initial state`, () => {
     expect(reducer(undefined, {})).toEqual({
       step: -1,
@@ -65,6 +65,15 @@ describe(`Reducer`, () => {
       questionId: 0,
       questions,
       errorsCount: 3
+    });
+  });
+});
+
+describe(`Action creators work correctly`, () => {
+  it(`Action creator for incrementing step returns correct action`, () => {
+    expect(ActionCreator.incrementStep()).toEqual({
+      type: ActionType.INCREMENT_STEP,
+      payload: 1
     });
   });
 });

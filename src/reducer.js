@@ -1,7 +1,6 @@
 import {extend} from './utils';
 import questions from './mocks/questions.js';
 
-
 const initialState = {
   step: -1,
   mistakes: 0,
@@ -13,6 +12,13 @@ const initialState = {
 const ActionType = {
   INCREMENT_MISTAKES: `INCREMENT_MISTAKES`,
   INCREMENT_STEP: `INCREMENT_STEP`
+};
+
+const ActionCreator = {
+  incrementStep: () => ({
+    type: ActionType.INCREMENT_STEP,
+    payload: 1,
+  })
 };
 
 const reducer = (state = initialState, action) => {
@@ -30,4 +36,4 @@ const reducer = (state = initialState, action) => {
   return state;
 };
 
-export {reducer, ActionType};
+export {reducer, ActionType, ActionCreator};
