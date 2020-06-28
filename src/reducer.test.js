@@ -7,9 +7,8 @@ describe(`Reducer works correctly`, () => {
     expect(reducer(undefined, {})).toEqual({
       step: -1,
       mistakes: 0,
-      questionId: 0,
+      maxMistakes: 3,
       questions: questionsMocks,
-      errorsCount: 3
     });
   });
 
@@ -17,35 +16,31 @@ describe(`Reducer works correctly`, () => {
     expect(reducer({
       step: -1,
       mistakes: 0,
-      questionId: 0,
+      maxMistakes: 3,
       questions,
-      errorsCount: 3
     }, {
       type: ActionType.INCREMENT_STEP,
       payload: 1
     })).toEqual({
       step: 0,
       mistakes: 0,
-      questionId: 0,
+      maxMistakes: 3,
       questions,
-      errorsCount: 3
     });
 
     expect(reducer({
       step: -1,
       mistakes: 0,
-      questionId: 0,
+      maxMistakes: 3,
       questions,
-      errorsCount: 3
     }, {
       type: ActionType.INCREMENT_STEP,
-      payload: 3
+      payload: 2
     })).toEqual({
-      step: 2,
+      step: 1,
       mistakes: 0,
-      questionId: 0,
+      maxMistakes: 3,
       questions,
-      errorsCount: 3
     });
   });
 
@@ -53,18 +48,16 @@ describe(`Reducer works correctly`, () => {
     expect(reducer({
       step: -1,
       mistakes: 0,
-      questionId: 0,
+      maxMistakes: 3,
       questions,
-      errorsCount: 3
     }, {
       type: ActionType.INCREMENT_MISTAKES,
       payload: 2
     })).toEqual({
       step: -1,
       mistakes: 2,
-      questionId: 0,
+      maxMistakes: 3,
       questions,
-      errorsCount: 3
     });
   });
 });
